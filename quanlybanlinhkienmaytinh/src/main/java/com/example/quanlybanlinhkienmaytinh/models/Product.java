@@ -1,6 +1,10 @@
 package com.example.quanlybanlinhkienmaytinh.models;
 
+import java.time.LocalDate;
 import java.util.Date;
+
+import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
@@ -16,12 +20,10 @@ public class Product {
 	private String Brand;
 	private String Category;
 	private double Price;
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT", name = "Image_file_name")
 	private String ImageFileName;
-	private Date Created;
-	
-	
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate Created;
 	
 	public int getId() {
 		return Id;
@@ -59,19 +61,11 @@ public class Product {
 	public void setImageFileName(String imageFileName) {
 		ImageFileName = imageFileName;
 	}
-	public Date getCreated() {
+	public LocalDate getCreated() {
 		return Created;
 	}
-	public void setCreated(Date created) {
+	public void setCreated(LocalDate created) {
 		Created = created;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
